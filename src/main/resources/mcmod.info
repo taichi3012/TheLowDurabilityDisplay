@@ -1,0 +1,16 @@
+[
+{
+  "modid": "thelowdurabilitydisplay",
+  "name": "TheLowDurabilityDisplay",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["taichi1230"],
+  "credits": "The Forge and FML guys.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
