@@ -35,6 +35,9 @@ public class TheLowDurabilityDisplay {
 
         short max = tags.getShort(THELOW_MAX_DURABILITY_TAG_KEY);
         List<String> tooltip = event.toolTip;
-        tooltip.add(tooltip.size() + (event.showAdvancedItemTooltips ? -2 : 0), String.format("§aTheLowDurability: %d / %d", max - now, max));
+        tooltip.add(
+            Math.max(tooltip.size() + (event.showAdvancedItemTooltips ? -2 : 0), 0),
+            String.format("§aTheLowDurability: %d / %d", max - now, max)
+        );
     }
 }
