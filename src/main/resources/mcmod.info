@@ -2,7 +2,7 @@
 {
   "modid": "thelowdurabilitydisplay",
   "name": "TheLowDurabilityDisplay",
-  "description": "",
+  "description": "%`TheLowの武器や防具の耐久値を確認できるようにします。`%",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
