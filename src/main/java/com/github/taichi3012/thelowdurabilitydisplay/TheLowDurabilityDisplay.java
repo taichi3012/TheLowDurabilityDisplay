@@ -2,6 +2,7 @@ package com.github.taichi3012.thelowdurabilitydisplay;
 
 import java.util.List;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -13,7 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod(modid = TheLowDurabilityDisplay.MOD_ID, useMetadata = true)
 public class TheLowDurabilityDisplay {
     public static final String MOD_ID = "thelowdurabilitydisplay";
-    
+
     @EventHandler
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
@@ -37,7 +38,7 @@ public class TheLowDurabilityDisplay {
         List<String> tooltip = event.toolTip;
         tooltip.add(
             Math.max(tooltip.size() + (event.showAdvancedItemTooltips ? -2 : 0), 0),
-            String.format("§aTheLowDurability: %d / %d", max - now, max)
+            I18n.format("thelowdurabilitydisplay.remainingAndMaxDurabilityValues", max - now, max)
         );
     }
 }
