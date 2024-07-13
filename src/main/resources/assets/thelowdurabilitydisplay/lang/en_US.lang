@@ -1,1 +1,4 @@
 thelowdurabilitydisplay.remainingAndMaxDurabilityValues=§aTheLowDurability: %1$d / %2$d
+
+thelowdurabilitydisplay.config.general.enabled=Enabled
+thelowdurabilitydisplay.config.general.onlyDisplayWhenEnabledAdvancedItemTooltips=Only display when enabled advanced item tooltips.

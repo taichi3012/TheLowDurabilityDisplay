@@ -7,6 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import com.github.taichi3012.thelowdurabilitydisplay.config.TheLowDurabilityDisplayConfig;
+
 public class ItemTooltipListener {
 
     private static final String THELOW_MAX_DURABILITY_TAG_KEY = "thelow_max_durability";
@@ -14,6 +16,10 @@ public class ItemTooltipListener {
 
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent event) {
+        if (TheLowDurabilityDisplayConfig.getConfigData().onlyDisplayWhenEnabledAdvancedItemTooltips && !event.showAdvancedItemTooltips) {
+            return;
+        }
+
         NBTTagCompound tags = event.itemStack.getTagCompound();
         if (tags == null || !tags.hasKey(THELOW_MAX_DURABILITY_TAG_KEY) || !tags.hasKey(THELOW_NOW_DURABILITY_TAG_KEY)) {
             return;
