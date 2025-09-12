@@ -11,36 +11,36 @@ import com.github.taichi3012.thelowdurabilitydisplay.config.TheLowDurabilityDisp
 
 public class GuiFactoryTheLowDurabilityDisplay implements IModGuiFactory {
 
-    @Override
-    public void initialize(Minecraft minecraftInstance) {
-    }
+  @Override
+  public void initialize(Minecraft minecraftInstance) {
+  }
 
-    @Override
-    public Class<? extends GuiScreen> mainConfigGuiClass() {
-        return GuiConfigTheLowDurabilityDisplay.class;
-    }
+  @Override
+  public Class<? extends GuiScreen> mainConfigGuiClass() {
+    return GuiConfigTheLowDurabilityDisplay.class;
+  }
 
-    @Override
-    public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
-        return null;
-    }
+  @Override
+  public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
+    return null;
+  }
 
-    @Override
-    public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
-        return null;
-    }
+  @Override
+  public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
+    return null;
+  }
 
-    public static class GuiConfigTheLowDurabilityDisplay extends GuiConfig {
-        public GuiConfigTheLowDurabilityDisplay(GuiScreen parent) {
-            super(
-                parent,
-                TheLowDurabilityDisplayConfig.getConfigElements(),
-                TheLowDurabilityDisplay.MOD_ID,
-                false,
-                false,
-                TheLowDurabilityDisplay.MOD_NAME
-            );
-        }
+  public static class GuiConfigTheLowDurabilityDisplay extends GuiConfig {
+    public GuiConfigTheLowDurabilityDisplay(GuiScreen parent) {
+      super(
+        parent,
+        TheLowDurabilityDisplayConfig.getConfigElements(),
+        TheLowDurabilityDisplay.MOD_ID,
+        false,
+        false,
+        TheLowDurabilityDisplay.MOD_NAME
+      );
     }
+  }
 
 }

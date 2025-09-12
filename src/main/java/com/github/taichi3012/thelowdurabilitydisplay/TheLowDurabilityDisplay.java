@@ -12,37 +12,37 @@ import com.github.taichi3012.thelowdurabilitydisplay.config.TheLowDurabilityDisp
 import com.github.taichi3012.thelowdurabilitydisplay.listener.ItemTooltipListener;
 
 @Mod(
-    modid = TheLowDurabilityDisplay.MOD_ID,
-    name = TheLowDurabilityDisplay.MOD_NAME,
-    useMetadata = true,
-    guiFactory = "com.github.taichi3012.thelowdurabilitydisplay.GuiFactoryTheLowDurabilityDisplay",
-    clientSideOnly = true
+  modid = TheLowDurabilityDisplay.MOD_ID,
+  name = TheLowDurabilityDisplay.MOD_NAME,
+  useMetadata = true,
+  guiFactory = "com.github.taichi3012.thelowdurabilitydisplay.GuiFactoryTheLowDurabilityDisplay",
+  clientSideOnly = true
 )
 public class TheLowDurabilityDisplay {
 
-    public static final String MOD_ID = "thelowdurabilitydisplay";
-    public static final String MOD_NAME = "TheLowDurabilityDisplay";
+  public static final String MOD_ID = "thelowdurabilitydisplay";
+  public static final String MOD_NAME = "TheLowDurabilityDisplay";
 
-    public static final ItemTooltipListener ITEM_TOOLTIP_LISTENER = new ItemTooltipListener();
+  public static final ItemTooltipListener ITEM_TOOLTIP_LISTENER = new ItemTooltipListener();
 
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        TheLowDurabilityDisplayConfig.init(event.getSuggestedConfigurationFile());
+  @EventHandler
+  public void preInit(FMLPreInitializationEvent event) {
+    TheLowDurabilityDisplayConfig.init(event.getSuggestedConfigurationFile());
+  }
+
+  @EventHandler
+  public void init(FMLInitializationEvent event) {
+    MinecraftForge.EVENT_BUS.register(this);
+    if (TheLowDurabilityDisplayConfig.getConfigData().enabled) {
+      MinecraftForge.EVENT_BUS.register(ITEM_TOOLTIP_LISTENER);
     }
+  }
 
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(this);
-        if (TheLowDurabilityDisplayConfig.getConfigData().enabled) {
-            MinecraftForge.EVENT_BUS.register(ITEM_TOOLTIP_LISTENER);
-        }
+  @SubscribeEvent
+  public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
+    if (event.modID.equals(TheLowDurabilityDisplay.MOD_ID)) {
+      TheLowDurabilityDisplayConfig.sync();
     }
-
-    @SubscribeEvent
-    public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-        if (event.modID.equals(TheLowDurabilityDisplay.MOD_ID)) {
-            TheLowDurabilityDisplayConfig.sync();
-        }
-    }
+  }
 
 }
