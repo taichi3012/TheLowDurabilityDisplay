@@ -52,9 +52,9 @@ public class ItemTooltipListener {
   }
 
   private static boolean isArmor(NBTTagCompound tags) {
-    return tags.hasKey("thelow_item_add_max_health", Constants.NBT.TAG_BYTE)
-      || tags.hasKey("thelow_item_normal_armor_point", Constants.NBT.TAG_BYTE)
-      || tags.hasKey("thelow_item_boss_armor_point", Constants.NBT.TAG_BYTE);
+    return tags.hasKey("thelow_item_add_max_health", Constants.NBT.TAG_DOUBLE)
+      || tags.hasKey("thelow_item_normal_armor_point", Constants.NBT.TAG_DOUBLE)
+      || tags.hasKey("thelow_item_boss_armor_point", Constants.NBT.TAG_DOUBLE);
   }
 
 }
